@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Pagina 3</title>
+  <style>
+	  body{
+		  background-color: lemonchiffon;
+		  text-align: center;
+	  }
+      canvas{
+          border: 3px solid #F4ACDC ;
+          background-color: white;
+      }
+  </style>
+	
+  <script>
+      window.onload=function(){
+          var canvas = document.getElementById("micanvas");
+          var context = canvas.getContext("2d");
+		  context.fillStyle= 'rgba(255, 99, 71, 0.4)';
+          context.fillRect(50,50,300,300);
+		  
+		  context.fillStyle= 'rgba(149, 224, 71, 0.5)';
+          context.fillRect(150,150,300,300);
+		  
+		  context.fillStyle= 'rgba(224, 171, 211, 0.5)';
+          context.fillRect(250,250,300,300);
+      }
+  </script>
+
+  </head>
+	
+<body>
+   <canvas id="micanvas" width="800" height="600"></canvas>
+</body>
+</html>
