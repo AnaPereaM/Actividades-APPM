@@ -1,1 +1,3 @@
-# Actividades-Ana Paula Pereaa Mercado
+# Actividades-Ana Paula Perea Mercado
+
+Cursos Graficos computacionales
