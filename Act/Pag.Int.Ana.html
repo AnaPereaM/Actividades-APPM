@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Act-Pag.int.ana</title>
+	<link rel="stylesheet" href="../Clase03/style.css">
+	<style>
+	  body{
+		  background-color: #e4f1ee;
+		  text-align: center;
+	  }
+		h1{
+			font-family: 'Libre Baskerville', serif;
+			font-size: 70px;
+			color:deeppink;
+		}
+		h2{
+			font-family:Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			font-size: 27px;
+			color: #ffadad;
+		}
+      canvas{
+          border: 5px solid #fdffb6;
+          background-color: white;
+      }
+  </style>
+</head>
+
+<body> 
+	<h1>Abecedario</h1>
+	<h2>Presiona una tecla del abecedario</h2>
+	<canvas id="canvas" width="400" height="400"></canvas>
+    <script src="../Act/Keycode.js"></script>
+	<script>
+    window.onload = function () {
+		var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+		
+		var imagena=new Image();
+		imagena.src="a.jpg";
+		var imagenb=new Image();
+		imagenb.src="b.jpg";
+		var imagenc=new Image();
+		imagenc.src="c.jpg";
+		var imagend=new Image();
+		imagend.src="d.jpg";
+		var imagene=new Image();
+		imagene.src="e.jpg";
+		var imagenf=new Image();
+		imagenf.src="f.jpg";
+		var imageng=new Image();
+		imageng.src="g.jpg";
+		var imagenh=new Image();
+		imagenh.src="h.jpg";
+		var imageni=new Image();
+		imageni.src="i.jpg";
+		var imagenj=new Image();
+		imagenj.src="j.jpg";
+		var imagenk=new Image();
+		imagenk.src="k.jpg";
+		var imagenl=new Image();
+		imagenl.src="l.jpg";
+		var imagenm=new Image();
+		imagenm.src="m.jpg";
+		var imagenn=new Image();
+		imagenn.src="n.jpg";
+		var imageno=new Image();
+		imageno.src="o.jpg";
+		var imagenp=new Image();
+		imagenp.src="p.jpg";
+		var imagenq=new Image();
+		imagenq.src="q.jpg";
+		var imagenr=new Image();
+		imagenr.src="r.jpg";
+		var imagens=new Image();
+		imagens.src="s.jpg";
+		var imagent=new Image();
+		imagent.src="t.jpg";
+		var imagenu=new Image();
+		imagenu.src="u.jpg";
+		var imagenv=new Image();
+		imagenv.src="v.jpg";
+		var imagenw=new Image();
+		imagenw.src="w.jpg";
+		var imagenx=new Image();
+		imagenx.src="x.jpg";
+		var imageny=new Image();
+		imageny.src="y.jpg";
+		var imagenz=new Image();
+		imagenz.src="z.jpg";
+
+		
+		/*context.fillStyle= 'rgba(255, 99, 71, 0.4)';*/
+		var x=50;
+		var y=50;
+        /*context.fillRect(x,y,100,100);*/
+		
+		
+		
+		function onKeyboardEvent (event) {
+			switch (event.keyCode) {
+				case keycode.A:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagena, 20,20,360,360);
+				  break;
+				case keycode.B:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagenb, 20,20,360,360);
+				  break;
+				case keycode.C:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagenc, 20,20,360,360);
+				  break;
+				case keycode.D:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagend, 20,20,360,360);
+				  break;
+				case keycode.E:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagene, 20,20,360,360);
+				  break;
+				case keycode.F:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagenf, 20,20,360,360);
+				  break;
+				case keycode.G:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imageng, 20,20,360,360);
+				  break;
+				case keycode.H:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagenh, 20,20,360,360);
+				  break;
+				case keycode.I:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imageni, 20,20,360,360);
+				  break;
+				case keycode.J:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagenj, 20,20,360,360);
+				  break;
+				case keycode.K:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagenk, 20,20,360,360);
+				  break;
+				case keycode.L:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagenl, 20,20,360,360);
+				  break;
+				case keycode.M:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagenm, 20,20,360,360);
+				  break;
+				case keycode.N:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagenn, 20,20,360,360);
+				  break;
+				case keycode.O:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imageno, 20,20,360,360);
+				  break;
+				case keycode.P:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagenp, 20,20,360,360);
+				  break;
+				case keycode.Q:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagenq, 20,20,360,360);
+				  break;
+				case keycode.R:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagenr, 20,20,360,360);
+				  break;
+				case keycode.S:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagens, 20,20,360,360);
+				  break;
+				case keycode.T:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagent, 20,20,360,360);
+				  break;
+				case keycode.U:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagenu, 20,20,360,360);
+				  break;
+				case keycode.V:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagenv, 20,20,360,360);
+				  break;
+				case keycode.W:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagenw, 20,20,360,360);
+				  break;
+				case keycode.X:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagenx, 20,20,360,360);
+				  break;
+				case keycode.Y:
+				    context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imageny, 20,20,360,360);
+				  break;
+				case keycode.Z:
+				  context.clearRect(0,0,innerWidth,innerHeight);
+					context.fillRect(x,y,100,100);
+					context.drawImage(imagenz, 20,20,360,360);
+				default:
+				  console.log(event.keyCode);
+			}
+      }
+		
+		window.addEventListener('keydown', onKeyboardEvent, false);
+    };
+	</script>
+	
+</body>
+</html>
