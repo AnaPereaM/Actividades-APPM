@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Red Velvet</title>
+    <link rel="stylesheet" href="style.css">
+	  <style>
+        body{
+
+				background-color: azure;
+			h1{
+				font-family: "Dancing Script", cursive;
+				font-weight: <700>;
+				font-size: 90px;
+				color: lightpink;
+				position: absolute;
+				left: 500px; 
+			}
+
+
+			#rv {
+				position: absolute;
+				top: 238.5px; 
+				left: 330px; 
+				pointer-events: none;
+			}
+			
+			canvas{
+			  border: 10px solid #fdffb6;
+			  background-color: white;
+				position: absolute;
+				top: 228.5px; 
+				left: 320px; 
+		  }
+		  }
+    </style>
+  </head>
+  <body>
+	<h1>Red Velvet</h1>  
+    <canvas id="canvas" width="699" height="699"></canvas>
+    
+	  
+	<img id="rv" src="../Redvelvet/rv3.png" alt="rv3.png">
+    
+    <script src="utils.js"></script>
+    
+    <script>
+    window.onload = function () {
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d'),
+          mouse = utils.captureMouse(canvas),
+          rv = new Image();
+          rv.src = "rv2.png";
+        
+      (function drawFrame () {
+		  
+        window.requestAnimationFrame(drawFrame, canvas);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.save();
+        
+        var x = 350; //donde quieres que este posicionada la imagen en x, puedes poner un número
+        var y = 350;//donde quieres que este posicionada la imagen en y, puedes poner un número
+
+        context.translate(x, y); //coordenadas donde quieres que aparezca tu imagen
+        var dx = mouse.x - x, 
+            dy = mouse.y - y;
+        var radianes = Math.atan2(dy, dx); //radians
+        console.log(radianes);
+        context.rotate(radianes); //radians
+		 
+        context.drawImage(rv, -rv.width/2, -rv.height/2);
+        context.restore();
+		  
+
+      }());
+		
+		
+    };
+    </script>
+  </body>
+</html>
