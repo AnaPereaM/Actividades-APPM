@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onda</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            text-align: center;
+            background-color: #f2e8e2;
+        }
+
+        h1 {
+            font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+            font-size: 90px;
+            color: #aa9f3d;
+        }
+
+        canvas {
+            border: 10px solid #f566;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hamster</h1>  
+    <canvas id="canvas" width="400" height="400"></canvas>
+
+    <script src="utils.js"></script>
+    <script src="ball.js"></script>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById('canvas'),
+                context = canvas.getContext('2d'),
+                ball = new Image();
+            ball.src = "hm.jpeg";
+            angle = 0,
+            centerX = canvas.width / 2,
+            centerY = canvas.height / 2,
+            radius = 70,
+            speed = 0.03;
+			centerScale = 1,
+            range = 0.5,
+            
+		    ball.x = canvas.width / 2;
+            ball.y = canvas.height / 2;
+            
+            ball.onload = function() {
+				(function drawFrame() {
+					window.requestAnimationFrame(drawFrame, canvas);
+					context.clearRect(0, 0, canvas.width, canvas.height);
+
+					var x = centerX + Math.sin(angle) * radius;
+					var y = centerY + Math.cos(angle) * radius;
+
+					var scale = centerScale + Math.sin(angle) * range;
+
+					angle += speed;
+
+					context.save();
+					context.translate(x, y);
+					context.rotate(0);
+					context.drawImage(ball, -radius * scale, -radius * scale, radius * 2 * scale, radius * 2 * scale);
+					context.restore();
+				}());
+            };
+        };
+    </script>
+</body>
+</html>
