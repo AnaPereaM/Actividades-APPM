@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>examen</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            text-align: center;
+            background-image: url('https://i.pinimg.com/originals/76/af/f1/76aff1fb8abaf9081e70ba34ed7a2a25.jpg');
+        }
+
+        h1 {
+            font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+            font-size: 90px;
+            color: #000000;
+        }
+
+        canvas {
+            border: 5px solid #000000;
+        } 
+    </style>
+</head>
+
+<body>
+    <h1>Peanuts</h1>  
+    <canvas id="canvas" width="1000" height="700"></canvas>
+
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById('canvas'),
+                context = canvas.getContext('2d'),
+                pj = new Image();
+            pj.src = "v.png";
+
+            var angle = 0,
+                amplitude = 80, 
+                frequency = 0.05,
+                centerX = 75,
+                centerY = canvas.height / 2 - 75,
+                xspeed = 3,
+                xpos = 0;
+
+            (function drawFrame() {
+                window.requestAnimationFrame(drawFrame, canvas);
+
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                var ypos = centerY + Math.sin(angle) * amplitude;
+                var xPosLimited = Math.max(0, Math.min(canvas.width - centerX, xpos + centerX));
+                context.drawImage(pj, xPosLimited - centerX, ypos, 150, 150); 
+
+                xpos += xspeed;
+                angle += frequency;
+
+                if (xpos + 150 >= canvas.width || xpos <= 0) {
+                    xspeed *= -1;
+                }
+            }());
+        };
+    </script>
+</body>
+
+</html>
+
+<audio controls loop autoplay>
+    <source src="peanuts.mp3" tyope="audio/mpeg">;
+  </audio>
