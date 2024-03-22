@@ -1,0 +1,515 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Paisaje</title>
+	  <style>
+		body{
+			text-align:center; /* esta regla centra todo*/
+			background-color: deeppink; 
+		}
+		
+		h1{
+			font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+			font-size: 140px;
+			color:white;
+		}
+		canvas{
+          border: 3px solid #090056;
+          background-color: #0c064a;
+      }
+
+	</style>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+	  <h1>Paisaje</h1>
+    <canvas id="canvas" width="560" height="460"></canvas>
+    <script>
+    window.onload = function () {
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d');
+	
+		//LUNA
+		
+		const c1 = {x: 440, y: 120, radius: 0};   
+		const c2 = {x: 440, y: 120, radius: 80};
+          gradient = context.createRadialGradient(c1.x, c1.y, c1.radius,
+                                                    c2.x, c2.y, c2.radius);
+      //all black alpha blend
+      gradient.addColorStop(0, "#ffffff");
+      gradient.addColorStop(0.85, "#f3fa37");
+      gradient.addColorStop(1, "rgba(0, 0, 0, 1)"); //alpha required
+
+      context.fillStyle = gradient;
+
+		context.beginPath();
+		context.arc(440, 120, 80, 0, 2 * Math.PI, true);
+		context.closePath();
+
+		context.fill();
+		
+		//luna 0
+		context.save();
+		context.fillStyle ="#0c064a";
+		context.strokeStyle="#0c064a";
+		context.lineWidth=9;
+		context.beginPath();
+		context.arc(410,130,65,0,2*Math.PI);
+		context.stroke();
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		
+		
+		//Rectangulo piso
+		context.save();
+		context.fillStyle ="#409724";
+		context.strokeStyle="#377F20";
+		context.lineWidth=3;
+		context.beginPath();
+		context.fillRect(0,440,560,20);
+		context.strokeRect(0,440,560,20);
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		//Rectangulo casa base
+		
+		pt1 = {x: 180, y: 120},            
+          pt2 = {x: 240, y: 480},    
+          gradient = context.createLinearGradient(pt1.x, pt1.y, pt2.x, pt2.y);
+
+      gradient.addColorStop(0, "#803f22");
+      gradient.addColorStop(0.45, "#6b351d");
+	gradient.addColorStop(0.7, "#2e160b");
+      gradient.addColorStop(1, "#1f0e07");
+
+      context.fillStyle = gradient;
+      context.fillRect(60,320,180,120);
+		
+		//Triangulo	casa
+		context.save();
+		context.fillStyle ="#834726";
+		context.strokeStyle="#764022";
+		context.lineWidth=6;
+		context.beginPath();
+		context.moveTo(40,320);
+		context.lineTo(150,220);
+		context.lineTo(260,320);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+		//Circulo
+		context.save();
+		context.fillStyle ="#28A2DB";
+		context.strokeStyle="#391F0C";
+		context.lineWidth=6;
+		context.beginPath();
+		context.arc(150,275,20,0,2*Math.PI);
+		context.stroke();
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		//cruz 1
+		context.save();
+		context.fillStyle ="#391F0C";
+		context.strokeStyle="#391F0C";
+		context.lineWidth=4;
+		context.beginPath();
+		context.fillRect(149,256,1,40);
+		context.strokeRect(149,256,1,40);
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		//cruz 2
+		context.save();
+		context.fillStyle ="#391F0C";
+		context.strokeStyle="#391F0C";
+		context.lineWidth=4;
+		context.beginPath();
+		context.fillRect(130,275,40, 1);
+		context.strokeRect(130,275,40, 1);
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		//puerta 1
+		context.save();
+		context.fillStyle ="#834726";
+		context.strokeStyle="#391F0C";
+		context.lineWidth=4;
+		context.beginPath();
+		context.fillRect(130,380,40, 60);
+		context.strokeRect(130,380,40, 60);
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		//puerta 1
+		context.save();
+		context.fillStyle ="#E8B70F";
+		context.strokeStyle="#E8B70F";
+		context.lineWidth=4;
+		context.beginPath();
+		context.fillRect(140,390,20, 10);
+		context.strokeRect(140,390,20, 10);
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		//ventana 1
+		context.save();
+		context.fillStyle ="#28A2DB";
+		context.strokeStyle="#7E4D12";
+		context.lineWidth=3;
+		context.beginPath();
+		context.fillRect(80,340,40, 30);
+		context.strokeRect(80,340,40, 30);
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		//ventana 2
+		context.save();
+		context.fillStyle ="#28A2DB";
+		context.strokeStyle="#7E4D12";
+		context.lineWidth=3;
+		context.beginPath();
+		context.fillRect(180,340,40, 30);
+		context.strokeRect(180,340,40, 30);
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		//ventana linea
+		context.save();
+		context.fillStyle ="#7E4D12";
+		context.strokeStyle="#7E4D12";
+		context.lineWidth=3;
+		context.beginPath();
+		context.fillRect(90,340,1, 30);
+		context.strokeRect(90,340,1, 30);
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		//ventana linea
+		context.save();
+		context.fillStyle ="#7E4D12";
+		context.strokeStyle="#7E4D12";
+		context.lineWidth=3;
+		context.beginPath();
+		context.fillRect(110,340,1, 30);
+		context.strokeRect(110,340,1, 30);
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		//ventana linea
+		context.save();
+		context.fillStyle ="#7E4D12";
+		context.strokeStyle="#7E4D12";
+		context.lineWidth=3;
+		context.beginPath();
+		context.fillRect(190,340,1, 30);
+		context.strokeRect(190,340,1, 30);
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		//ventana linea
+		context.save();
+		context.fillStyle ="#7E4D12";
+		context.strokeStyle="#7E4D12";
+		context.lineWidth=3;
+		context.beginPath();
+		context.fillRect(210,340,1, 30);
+		context.strokeRect(210,340,1, 30);
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		//Chimenea tubo
+		context.save();
+		context.fillStyle ="#8C321A";
+		context.strokeStyle="#952D11";
+		context.lineWidth=6;
+		context.beginPath();
+		context.moveTo(200,240);
+		context.lineTo(200,261);
+		context.lineTo(220,279);
+		context.lineTo(220,240);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+		//chimenea arriba
+		context.save();
+		context.fillStyle ="#6E2917";
+		context.strokeStyle="#612415";
+		context.lineWidth=3;
+		context.beginPath();
+		context.fillRect(190,220,40, 20);
+		context.strokeRect(190,220,40, 20);
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		//estrella
+		context.save();
+		context.fillStyle ="#E7F7FF";
+		context.strokeStyle="#B6D8E9";
+		context.lineWidth=6;
+		context.beginPath();
+		context.moveTo(100,20);
+		context.quadraticCurveTo(90,60, 60,80);
+		context.quadraticCurveTo(90,100, 100,140);
+		context.quadraticCurveTo(110,100, 140,80);
+		context.quadraticCurveTo(105,60, 100,20);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+		//estrella 2
+		context.save();
+		context.fillStyle ="#E7F7FF";
+		context.strokeStyle="#B6D8E9";
+		context.lineWidth=6;
+		context.beginPath();
+		context.moveTo(180,100);
+		context.quadraticCurveTo(175,115, 165,120);
+		context.quadraticCurveTo(175,125, 180,140);
+		context.quadraticCurveTo(185,125, 195,120);
+		context.quadraticCurveTo(185,116, 180,100);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+		//estrella 3
+		context.save();
+		context.fillStyle ="#E7F7FF";
+		context.strokeStyle="#B6D8E9";
+		context.lineWidth=6;
+		context.beginPath();
+		context.moveTo(140,140);
+		context.quadraticCurveTo(135,155, 125,160);
+		context.quadraticCurveTo(135,165, 140,180);
+		context.quadraticCurveTo(145,165, 155,160);
+		context.quadraticCurveTo(145,155, 140,140);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+		//hongo base
+		context.save();
+		context.fillStyle ="#edeae2";
+		context.strokeStyle="#EAD79A";
+		context.lineWidth=6;
+		context.beginPath();
+		context.moveTo(327,410);
+		context.quadraticCurveTo(324, 423, 320,440);
+		context.quadraticCurveTo(320, 450, 340,452);
+		context.quadraticCurveTo(350, 450, 355,440);
+		context.quadraticCurveTo(352, 424, 348,410);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+		//hongo cabeza
+		context.save();
+		context.fillStyle ="#e5070e";
+		context.strokeStyle="#e5070e";
+		context.lineWidth=8;
+		context.beginPath();
+		context.moveTo(327,410);
+		context.quadraticCurveTo(310, 407, 300,400);
+		context.quadraticCurveTo(298, 390, 300, 380);
+		context.quadraticCurveTo(312, 372, 320, 360);
+		context.quadraticCurveTo(342, 342, 347, 347);
+		context.quadraticCurveTo(360, 348, 368, 360);
+		context.quadraticCurveTo(370, 370, 380, 380);
+		context.quadraticCurveTo(383, 390, 380, 400);
+		context.quadraticCurveTo(370, 410, 348,410);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+		//puntos
+		context.save();
+		context.fillStyle ="#FFFCF1";
+		context.strokeStyle="#FFFCF1";
+		context.lineWidth=1;
+		context.beginPath();
+		context.arc(360,400,7,0,2*Math.PI);
+		context.stroke();
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		context.save();
+		context.fillStyle ="#FFFCF1";
+		context.strokeStyle="#FFFCF1";
+		context.lineWidth=1;
+		context.beginPath();
+		context.arc(330,395,7,0,2*Math.PI);
+		context.stroke();
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		context.save();
+		context.fillStyle ="#FFFCF1";
+		context.strokeStyle="#FFFCF1";
+		context.lineWidth=1;
+		context.beginPath();
+		context.arc(350,375,5,0,2*Math.PI);
+		context.stroke();
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		context.save();
+		context.fillStyle ="#FFFCF1";
+		context.strokeStyle="#FFFCF1";
+		context.lineWidth=1;
+		context.beginPath();
+		context.arc(305,384,5,0,2*Math.PI);
+		context.stroke();
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		context.save();
+		context.fillStyle ="#FFFCF1";
+		context.strokeStyle="#FFFCF1";
+		context.lineWidth=1;
+		context.beginPath();
+		context.arc(330,360,7,0,2*Math.PI);
+		context.stroke();
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		context.save();
+		context.fillStyle ="#FFFCF1";
+		context.strokeStyle="#FFFCF1";
+		context.lineWidth=1;
+		context.beginPath();
+		context.arc(360,357,4,0,2*Math.PI);
+		context.stroke();
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		context.save();
+		context.fillStyle ="#FFFCF1";
+		context.strokeStyle="#FFFCF1";
+		context.lineWidth=1;
+		context.beginPath();
+		context.arc(377,387,4,0,2*Math.PI);
+		context.stroke();
+		context.closePath();
+		context.fill();
+		context.restore();
+		
+		//hoja 1
+		context.save();
+		context.fillStyle ="#b5d259";
+		context.strokeStyle="#4c6c0e";
+		context.lineWidth=3;
+		context.beginPath();
+		context.moveTo(460,440);
+		context.quadraticCurveTo(430, 410, 420,380);
+		context.quadraticCurveTo(450, 400, 460,440);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+		//hoja 2
+		context.save();
+		context.fillStyle ="#b5d259";
+		context.strokeStyle="#4c6c0e";
+		context.lineWidth=3;
+		context.beginPath();
+		context.moveTo(460,440);
+		context.quadraticCurveTo(490, 410, 500,380);
+		context.quadraticCurveTo(470, 400, 460,440);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+		//Palo flor
+		context.save();
+		context.fillStyle ="#4c6c0e";
+		context.strokeStyle="#4c6c0e";
+		context.lineWidth=4;
+		context.beginPath();
+		context.moveTo(460,440);
+		context.lineTo(460,340);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+		//ptalo
+		context.save();
+		context.fillStyle ="#f5a2cb";
+		context.strokeStyle="#f54774";
+		context.lineWidth=4;
+		context.beginPath();
+		context.moveTo(460,340);
+		context.quadraticCurveTo(440, 320, 440,300);
+		context.quadraticCurveTo(460, 310, 460,340);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+		//ptalo 2
+		context.save();
+		context.fillStyle ="#f5a2cb";
+		context.strokeStyle="#f54774";
+		context.lineWidth=4;
+		context.beginPath();
+		context.moveTo(460,340);
+		context.quadraticCurveTo(480, 320, 480,300);
+		context.quadraticCurveTo(460, 310, 460,340);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+		//ptalo 3
+		context.save();
+		context.fillStyle ="#f5a2cb";
+		context.strokeStyle="#f54774";
+		context.lineWidth=4;
+		context.beginPath();
+		context.moveTo(460,340);
+		context.quadraticCurveTo(445, 320, 460,300);
+		context.quadraticCurveTo(475, 320, 460,340);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+		
+		
+    };
+    </script>
+  </body>
+</html>

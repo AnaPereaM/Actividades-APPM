@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Drawing App Colores</title>
+    <link rel="stylesheet" href="style.css">
+	  <style>
+		  body{
+			  text-align: center;
+			  width: 100%;
+		  }
+		   h1 {
+            font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+            font-size: 90px;
+            color: #ff007b;
+        	}
+
+		  .container{
+			  margin: 3px auto;
+			  text-align: center;
+			  width:1000px;
+		  }
+		  button{
+			  width: 100px;
+			  height: 50px;
+			  margin:5px;
+		  }
+		  
+		  button:hover{
+			  opacity: 0.5;
+		  }
+		  #pink{
+			  background-color: #F587C6;
+			  font: 16px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  #green{
+			  background-color: #74D170;
+			  font: 16px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  #yellow{
+			  background-color: #F1F372;
+			  font: 16px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  #purple{
+			  background-color: #c577f2;
+			  font: 16px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  #blue{
+			  background-color: #71d2f0;
+			  font: 16px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  #orange{
+			  background-color: #faa264;
+			  font: 16px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  #delgado{
+			  background-color: #525252;
+			  font: 13px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  #medio{
+			  background-color: #525252;
+			  font: 13px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  #grueso{
+			  background-color: #525252;
+			  font: 13px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  #muygrueso{
+			  background-color: #525252;
+			  font: 13px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  #ultragrueso{
+			  background-color: #525252;
+			  font: 13px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  #borrar{
+			  width: 330px;
+			  background-color: black;
+			  font: 16px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			  color: white;
+		  }
+		  
+		 
+	  </style>
+  </head>
+  <body>
+	<h1>Paint</h1>  
+	  <div id="container">
+		<div class="colores">
+			<button id="pink" type="button" value="#F587C6">Pink</button>
+			<button id="green" type="button" value="#74D170">Green</button>
+			<button id="yellow" type="button" value="#F1F372">Yellow</button>
+			<button id="purple" type="button" value="#c577f2">Purple</button>
+			<button id="blue" type="button" value="#71d2f0">Blue</button>
+			<button id="orange" type="button" value="#faa264">Orange</button>
+		</div>
+		<div class="grosor">
+			<button id="delgado" type="button" value="2">Delgado</button>
+			<button id="medio" type="button" value="4">Medio</button>
+			<button id="grueso" type="button" value="6">Grueso</button>
+			<button id="muygrueso" type="button" value="8">Muy grueso</button>
+			<button id="ultragrueso" type="button" value="10">Ultra grueso</button>
+		</div>
+		<div id="otros">
+			<button id="borrar" type="button" value="black">Borrar todo</button>
+		</div>
+
+		<canvas id="canvas" width="900" height="700"></canvas>
+		<aside>Click and draw with the mouse.</aside>
+
+		<script src="utils.js"></script>
+		<script>
+		window.onload = function () {
+		  var canvas = document.getElementById('canvas'),
+			  context = canvas.getContext('2d'),
+			  mouse = utils.captureMouse(canvas);
+
+		  canvas.addEventListener('mousedown', function () {
+			context.beginPath();
+			context.moveTo(mouse.x, mouse.y);
+			canvas.addEventListener('mousemove', onMouseMove, false);
+		  }, false);
+
+		  canvas.addEventListener('mouseup', function () {
+			canvas.removeEventListener('mousemove', onMouseMove, false);
+		  }, false);
+
+		  function onMouseMove () {
+			context.lineTo(mouse.x, mouse.y);
+			context.stroke();
+		  }
+			
+			var colores=document.getElementsByClassName("colores")[0];
+			colores.addEventListener("click", function(event){
+				context.strokeStyle = event.target.value;
+			});
+			
+			var grosorButtons = document.querySelectorAll(".grosor button");
+			grosorButtons.forEach(function(button) {
+				button.addEventListener("click", function() {
+					var grosor = parseInt(this.value); 
+							context.lineWidth = grosor;
+				});
+			});
+			
+			var clearButton=document.getElementById("borrar");
+			clearButton.addEventListener("click", function(){
+				context.clearRect(0,0, canvas.width, canvas.height);
+			});
+			
+		};
+		</script>
+	</div>  
+  </body>
+</html>
