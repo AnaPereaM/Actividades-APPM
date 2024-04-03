@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tangram</title>
+	  <style>
+		body{
+			text-align:center; /* esta regla centra todo*/
+			background-color: crimson; 
+		}
+		
+		h1{
+			font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+			font-size: 140px;
+			color:white;
+		}
+		canvas{
+          border: 3px solid black;
+          background-color: white;
+      }
+
+	</style>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+	  <h1>Tangram</h1>
+    <canvas id="canvas" width="620" height="440"></canvas>
+    <script>
+    window.onload = function () {
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d');
+	
+		
+		//Triangulo	
+		context.save();
+		context.fillStyle ="#6fceec";
+		context.strokeStyle="#6fceec";
+		context.lineWidth=0;
+		context.beginPath();
+		context.moveTo(20,300);
+		context.lineTo(140,180);
+		context.lineTo(260,300);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+		//Triangulo	 2
+		context.save();
+		context.fillStyle ="#73be46";
+		context.strokeStyle="#73be46";
+		context.lineWidth=0;
+		context.beginPath();
+		context.moveTo(140,180);
+		context.lineTo(300,180);
+		context.lineTo(300,340);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+		//Triangulo	 3
+		context.save();
+		context.fillStyle ="#ea242b";
+		context.strokeStyle="#ea242b";
+		context.lineWidth=0;
+		context.beginPath();
+		context.moveTo(260,300);
+		context.lineTo(140,300);
+		context.lineTo(200, 360);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+		//cuaderado
+		context.save();
+		context.fillStyle ="#ffc111";
+		context.strokeStyle="#ffc111";
+		context.lineWidth=0;
+		context.beginPath();
+		context.moveTo(300,180);
+		context.lineTo(300,280);
+		context.lineTo(400,280);
+		context.lineTo(400,180);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+		//Triangulo	 4
+		context.save();
+		context.fillStyle ="#165490";
+		context.strokeStyle="#165490";
+		context.lineWidth=0;
+		context.beginPath();
+		context.moveTo(260,180);
+		context.lineTo(340, 180);
+		context.lineTo(340, 100);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+		//romboide
+		context.save();
+		context.fillStyle ="#bc9ab5";
+		context.strokeStyle="#bc9ab5";
+		context.lineWidth=0;
+		context.beginPath();
+		context.moveTo(400,280);
+		context.lineTo(400,180);
+		context.lineTo(500, 100);
+		context.lineTo(500, 200);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+		//triangulo final
+		context.save();
+		context.fillStyle ="#fb8327";
+		context.strokeStyle="#fb8327";
+		context.lineWidth=0;
+		context.beginPath();
+		context.moveTo(500, 60);
+		context.lineTo(500, 160);
+		context.lineTo(600, 160);
+		context.closePath();
+		context.stroke();
+		context.fill();
+		context.restore();
+		
+    };
+    </script>
+  </body>
+</html>
